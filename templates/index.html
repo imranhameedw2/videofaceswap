@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VideoFaceSwap</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>VideoFaceSwap</h1>
+
+    <form id="swapForm">
+      <div class="field">
+        <label for="image">Select user image</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+      </div>
+      <div class="field">
+        <label for="video">Select source video</label>
+        <input type="file" id="video" name="video" accept="video/*" required />
+      </div>
+
+      <div class="field">
+        <span class="label">Gender</span>
+        <label><input type="radio" name="gender" value="male" /> Male</label>
+        <label><input type="radio" name="gender" value="female" /> Female</label>
+        <label><input type="radio" name="gender" value="all" checked /> All Faces</label>
+        <p class="hint">(Auto-detected faces will be processed when set to All Faces)</p>
+      </div>
+
+      <div class="field">
+        <label for="duration">Duration: <span id="durationValue">10</span> sec</label>
+        <input id="duration" name="duration" type="range" min="5" max="60" value="10" />
+      </div>
+
+      <button type="submit" id="generateBtn">Generate Face Swap Video</button>
+    </form>
+
+    <div id="progressSection" class="hidden">
+      <div class="progress-label">Progress: <span id="progressText">0%</span></div>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="result" class="hidden">
+      <h2>Result</h2>
+      <video id="resultVideo" controls playsinline></video>
+      <div class="download">
+        <a id="downloadBtn" class="button" href="#" download="face_swap.mp4">Download</a>
+      </div>
+    </div>
+
+    <div id="message" class="message hidden"></div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
