@@ -96,7 +96,13 @@ systemctl enable --now "$SERVICE_NAME"
 
 echo ""
 echo "✅ VideoFaceSwap installed and running."
-echo "Visit: http://localhost/"
+
+# Detect GitHub Codespaces and provide the appropriate URL
+if [[ -n "${CODESPACE_NAME:-}" ]]; then
+  echo "Visit: https://$CODESPACE_NAME-8000.app.github.dev/"
+else
+  echo "Visit: http://localhost:8000/"
+fi
 
 echo "To check status: sudo systemctl status $SERVICE_NAME"
 echo "To stop: sudo systemctl stop $SERVICE_NAME"

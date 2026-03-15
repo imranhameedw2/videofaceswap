@@ -250,5 +250,5 @@ def download(task_id):
 
 
 if __name__ == "__main__":
-    # Run on port 3000 for GitHub Codespaces compatibility (port 80 requires root and may not be forwarded)
-    app.run(host="0.0.0.0", port=3000, debug=True)
+    # Run on port 8000 for GitHub Codespaces compatibility (port 80 requires root and may not be forwarded)
+    app.run(host="0.0.0.0", port=8000, debug=True)
